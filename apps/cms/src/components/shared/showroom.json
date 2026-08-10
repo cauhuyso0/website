@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_shared_showrooms",
+  "info": {
+    "displayName": "Showroom",
+    "icon": "pinMap"
+  },
+  "options": {},
+  "attributes": {
+    "city": {
+      "type": "string",
+      "required": true
+    },
+    "address": {
+      "type": "text",
+      "required": true
+    },
+    "hotline": {
+      "type": "string"
+    }
+  }
+}

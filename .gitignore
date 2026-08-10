@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build
+.next/
+out/
+dist/
+build/
+.tmp/
+.cache/
+
+# Env
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# Logs / OS
+*.log
+.DS_Store
+Thumbs.db
+
+# Strapi
+apps/cms/.tmp/
+apps/cms/.cache/
+apps/cms/public/uploads/
+apps/cms/database/exports/
+apps/cms/dist/
+
+# IDE
+.idea/
+.vscode/
+*.swp

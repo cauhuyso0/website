@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f7f3ec;
+  --foreground: #1f140e;
+  --surface: #fffaf3;
+  --muted: #6d5a4c;
+  --brand: #3b2418;
+  --brand-soft: #5a3a28;
+  --accent: #b08a4f;
+  --accent-soft: #d9c3a1;
+  --line: rgba(59, 36, 24, 0.12);
+  --hero-overlay: rgba(20, 10, 6, 0.45);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-muted: var(--muted);
+  --color-brand: var(--brand);
+  --color-brand-soft: var(--brand-soft);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-line: var(--line);
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background:
+    radial-gradient(circle at top left, rgba(176, 138, 79, 0.18), transparent 36%),
+    linear-gradient(180deg, #fbf7f1 0%, var(--background) 45%, #efe6d8 100%);
+  color: var(--foreground);
+  font-family: var(--font-body), sans-serif;
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container-page {
+  width: min(1120px, calc(100% - 2rem));
+  margin-inline: auto;
+}
+
+.prose-nestora h2 {
+  font-family: var(--font-display), serif;
+  font-size: 1.5rem;
+  margin: 1.5rem 0 0.75rem;
+}
+
+.prose-nestora p,
+.prose-nestora li {
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 0.75rem;
+}
+
+.prose-nestora ul {
+  padding-left: 1.25rem;
+  list-style: disc;
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes soft-zoom {
+  from {
+    transform: scale(1.06);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.animate-rise {
+  animation: rise-in 0.8s ease both;
+}
+
+.animate-rise-delay {
+  animation: rise-in 0.9s ease 0.15s both;
+}
+
+.animate-hero-media {
+  animation: soft-zoom 8s ease-out both;
+}

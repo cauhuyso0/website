@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_home_commitments",
+  "info": {
+    "displayName": "Commitment",
+    "icon": "check"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

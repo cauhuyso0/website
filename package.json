@@ -1,0 +1,14 @@
+{
+  "name": "yen-sao-monorepo",
+  "private": true,
+  "scripts": {
+    "dev:web": "npm --prefix apps/web run dev",
+    "dev:cms": "npm --prefix apps/cms run develop",
+    "build": "npm --prefix apps/cms run build && npm --prefix apps/web run build",
+    "build:web": "npm --prefix apps/web run build",
+    "build:cms": "npm --prefix apps/cms run build"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

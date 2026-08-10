@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_order_order_items",
+  "info": {
+    "displayName": "Order Item",
+    "icon": "shoppingCart"
+  },
+  "options": {},
+  "attributes": {
+    "productName": {
+      "type": "string",
+      "required": true
+    },
+    "variantName": {
+      "type": "string"
+    },
+    "sku": {
+      "type": "string"
+    },
+    "unitPrice": {
+      "type": "decimal",
+      "required": true
+    },
+    "quantity": {
+      "type": "integer",
+      "required": true,
+      "min": 1
+    },
+    "lineTotal": {
+      "type": "decimal",
+      "required": true
+    }
+  }
+}
