@@ -17,12 +17,12 @@ export default async function OrderSuccessPage({
 
   return (
     <div className="container-page py-20 text-center">
-      <p className="text-xs uppercase tracking-[0.2em] text-muted">Nestora</p>
+      <p className="text-xs uppercase tracking-[0.2em] text-muted">Yến Sào Hiếu Hiền</p>
       <h1 className="mt-4 font-[family-name:var(--font-display)] text-4xl text-brand">
         Đặt hàng thành công
       </h1>
       <p className="mx-auto mt-4 max-w-lg text-muted">
-        Cảm ơn bạn đã tin tưởng Nestora. Mã đơn hàng của bạn là{" "}
+        Cảm ơn bạn đã tin tưởng Yến Sào Hiếu Hiền. Mã đơn hàng của bạn là{" "}
         <strong className="text-brand">{code}</strong>. Chúng tôi sẽ liên hệ xác nhận sớm.
       </p>
       <div className="mt-8 flex justify-center gap-3">

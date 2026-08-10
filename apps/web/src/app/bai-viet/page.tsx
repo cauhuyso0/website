@@ -27,7 +27,7 @@ export default async function ArticlesPage({
           <Link key={article.documentId} href={`/bai-viet/${article.slug}`} className="group">
             <div className="mb-4 aspect-[16/10] bg-[linear-gradient(135deg,#d9c3a1,#5a3a28)] transition group-hover:brightness-110" />
             <p className="text-xs uppercase tracking-[0.14em] text-muted">
-              {article.category?.name ?? "Nestora"}
+              {article.category?.name ?? "Yến Sào Hiếu Hiền"}
             </p>
             <h2 className="mt-2 font-[family-name:var(--font-display)] text-2xl text-brand">
               {article.title}

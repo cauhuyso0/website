@@ -14,7 +14,7 @@ export default async function ContactPage() {
       <div>
         <h1 className="font-[family-name:var(--font-display)] text-4xl text-brand">Liên hệ</h1>
         <p className="mt-3 text-muted">
-          Để lại thông tin, Nestora sẽ phản hồi trong thời gian sớm nhất.
+          Để lại thông tin, Yến Sào Hiếu Hiền sẽ phản hồi trong thời gian sớm nhất.
         </p>
         <div className="mt-8 space-y-3 text-sm">
           <p>
@@ -25,8 +25,8 @@ export default async function ContactPage() {
           </p>
           <p>
             Email:{" "}
-            <a className="text-brand" href={`mailto:${setting?.email ?? "hello@nestora.vn"}`}>
-              {setting?.email ?? "hello@nestora.vn"}
+            <a className="text-brand" href={`mailto:${setting?.email ?? "lienhe@yensaohieuhien.vn"}`}>
+              {setting?.email ?? "lienhe@yensaohieuhien.vn"}
             </a>
           </p>
           <div className="space-y-3 pt-4">

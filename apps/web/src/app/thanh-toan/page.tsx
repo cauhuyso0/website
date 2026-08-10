@@ -12,7 +12,7 @@ export default function CheckoutPage() {
         Thanh toán COD
       </h1>
       <p className="mb-8 text-muted">
-        Điền thông tin nhận hàng. Nestora sẽ liên hệ xác nhận và giao COD.
+        Điền thông tin nhận hàng. Yến Sào Hiếu Hiền sẽ liên hệ xác nhận và giao COD.
       </p>
       <CheckoutForm />
     </div>

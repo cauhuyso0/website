@@ -15,7 +15,7 @@ export default async function HomePage() {
     findArticles(1, 3),
   ]);
 
-  const brandName = setting?.brandName ?? "Nestora";
+  const brandName = setting?.brandName ?? "Yến Sào Hiếu Hiền";
 
   return (
     <>
@@ -50,7 +50,7 @@ export default async function HomePage() {
       <section className="container-page grid gap-8 py-16 lg:grid-cols-2">
         <div>
           <h2 className="font-[family-name:var(--font-display)] text-3xl text-brand md:text-4xl">
-            {home?.whyChooseTitle ?? "Vì sao chọn Nestora?"}
+            {home?.whyChooseTitle ?? "Vì sao chọn Yến Sào Hiếu Hiền?"}
           </h2>
         </div>
         <div
@@ -58,7 +58,7 @@ export default async function HomePage() {
           dangerouslySetInnerHTML={{
             __html:
               home?.whyChooseBody ??
-              "<p>Nestora mang đến yến sào minh bạch nguồn gốc, phù hợp dùng hàng ngày và làm quà.</p>",
+              "<p>Yến Sào Hiếu Hiền mang đến yến sào minh bạch nguồn gốc, phù hợp dùng hàng ngày và làm quà.</p>",
           }}
         />
       </section>
@@ -70,7 +70,7 @@ export default async function HomePage() {
               {home?.ctaTitle ?? "Tư vấn chọn yến phù hợp"}
             </h2>
             <p className="mt-3 max-w-xl text-muted">
-              {home?.ctaBody ?? "Đội ngũ Nestora sẵn sàng hỗ trợ bạn."}
+              {home?.ctaBody ?? "Đội ngũ Yến Sào Hiếu Hiền sẵn sàng hỗ trợ bạn."}
             </p>
           </div>
           <Button href={home?.ctaHref ?? "/lien-he"}>{home?.ctaLabel ?? "Liên hệ ngay"}</Button>

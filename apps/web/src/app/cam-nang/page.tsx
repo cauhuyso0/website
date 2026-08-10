@@ -18,7 +18,7 @@ export default async function GuidePage() {
         dangerouslySetInnerHTML={{
           __html:
             guide?.content ??
-            "<p>Hướng dẫn bảo quản và sử dụng yến Nestora.</p>",
+            "<p>Hướng dẫn bảo quản và sử dụng Yến Sào Hiếu Hiền.</p>",
         }}
       />
     </div>

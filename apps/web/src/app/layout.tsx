@@ -16,10 +16,10 @@ const body = Manrope({
 });
 
 const fallbackSetting = {
-  brandName: "Nestora",
+  brandName: "Yến Sào Hiếu Hiền",
   tagline: "Yến sạch – vị thật – gửi trao sức khỏe",
   hotline: "+84 900 123 456",
-  email: "hello@nestora.vn",
+  email: "lienhe@yensaohieuhien.vn",
   businessHours: "08h30 - 20h30 T2-T7, CN: 08h30 - 17h30",
   showrooms: [
     {
@@ -38,7 +38,7 @@ export async function generateMetadata(): Promise<Metadata> {
       default: `${setting.brandName} | Yến sào cao cấp`,
       template: `%s | ${setting.brandName}`,
     },
-    description: setting.tagline ?? "Website bán yến sào Nestora",
+    description: setting.tagline ?? "Website bán Yến Sào Hiếu Hiền",
   };
 }
 

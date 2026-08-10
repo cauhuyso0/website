@@ -60,7 +60,7 @@ async function seedIfEmpty(strapi: Core.Strapi): Promise<void> {
     return;
   }
 
-  strapi.log.info("Seeding Nestora demo content...");
+  strapi.log.info("Seeding Yến Sào Hiếu Hiền demo content...");
 
   const categoryDefs = [
     {
@@ -100,7 +100,7 @@ async function seedIfEmpty(strapi: Core.Strapi): Promise<void> {
       slug: "yen-chung-san-hat-sen",
       shortDescription: "Hũ yến chưng sẵn vị hạt sen thanh mát.",
       description:
-        "<p>Yến chưng sẵn hạt sen Nestora được chế biến từ tổ yến tinh khiết, không chất bảo quản.</p>",
+        "<p>Yến chưng sẵn hạt sen Yến Sào Hiếu Hiền được chế biến từ tổ yến tinh khiết, không chất bảo quản.</p>",
       price: 105000,
       isFeatured: true,
       category: categories["yen-chung"],
@@ -111,7 +111,7 @@ async function seedIfEmpty(strapi: Core.Strapi): Promise<void> {
       slug: "yen-chung-san-saffron",
       shortDescription: "Kết hợp yến và saffron hỗ trợ giấc ngủ sâu.",
       description:
-        "<p>Công thức saffron Nestora giúp thư giãn và bồi bổ từ bên trong.</p>",
+        "<p>Công thức saffron Yến Sào Hiếu Hiền giúp thư giãn và bồi bổ từ bên trong.</p>",
       price: 95000,
       compareAtPrice: 104500,
       isFeatured: true,
@@ -123,7 +123,7 @@ async function seedIfEmpty(strapi: Core.Strapi): Promise<void> {
       slug: "yen-chung-tuoi-120ml",
       shortDescription: "Chưng nóng theo đơn, giao nhanh nội thành.",
       description:
-        "<p>Yến chưng tươi 120ml Nestora giữ trọn vị ngọt tự nhiên của tổ yến.</p>",
+        "<p>Yến chưng tươi 120ml Yến Sào Hiếu Hiền giữ trọn vị ngọt tự nhiên của tổ yến.</p>",
       price: 215000,
       isFeatured: true,
       category: categories["yen-chung"],
@@ -150,7 +150,7 @@ async function seedIfEmpty(strapi: Core.Strapi): Promise<void> {
       name: "Tổ yến tinh chế 50g",
       slug: "to-yen-tinh-che-50g",
       shortDescription: "Tổ yến sạch lông, sợi dài, dùng chưng tại nhà.",
-      description: "<p>Được tuyển chọn và sơ chế thủ công tại Nestora.</p>",
+      description: "<p>Được tuyển chọn và sơ chế thủ công tại Yến Sào Hiếu Hiền.</p>",
       price: 1450000,
       isFeatured: true,
       category: categories["to-yen"],
@@ -160,7 +160,7 @@ async function seedIfEmpty(strapi: Core.Strapi): Promise<void> {
       name: "Yến tươi sơ chế sạch lông",
       slug: "yen-tuoi-so-che-sach-long",
       shortDescription: "Cấp đông chia túi zip tiện bảo quản.",
-      description: "<p>Yến tươi Nestora giữ độ dai và hương vị tự nhiên.</p>",
+      description: "<p>Yến tươi Yến Sào Hiếu Hiền giữ độ dai và hương vị tự nhiên.</p>",
       price: 2940000,
       isFeatured: false,
       category: categories["to-yen"],
@@ -170,7 +170,7 @@ async function seedIfEmpty(strapi: Core.Strapi): Promise<void> {
       name: "Set túi xách 4 hũ yến chưng sẵn",
       slug: "set-tui-xach-4-hu",
       shortDescription: "Set quà kinh tế, dễ mang theo.",
-      description: "<p>Set 4 hũ yến chưng sẵn Nestora trong túi xách tinh tế.</p>",
+      description: "<p>Set 4 hũ yến chưng sẵn Yến Sào Hiếu Hiền trong túi xách tinh tế.</p>",
       price: 390000,
       compareAtPrice: 400000,
       isFeatured: true,
@@ -181,7 +181,7 @@ async function seedIfEmpty(strapi: Core.Strapi): Promise<void> {
       name: "Set quà hộp vali yến chưng tươi",
       slug: "set-qua-hop-vali",
       shortDescription: "Hộp vali sang trọng cho dịp biếu tặng.",
-      description: "<p>Set quà Nestora kết hợp yến chưng tươi và hộp vali cao cấp.</p>",
+      description: "<p>Set quà Yến Sào Hiếu Hiền kết hợp yến chưng tươi và hộp vali cao cấp.</p>",
       price: 1300000,
       isFeatured: true,
       category: categories["set-qua"],
@@ -280,10 +280,10 @@ async function seedIfEmpty(strapi: Core.Strapi): Promise<void> {
 
   await strapi.documents("api::site-setting.site-setting").create({
     data: {
-      brandName: "Nestora",
+      brandName: "Yến Sào Hiếu Hiền",
       tagline: "Yến sạch – vị thật – gửi trao sức khỏe",
       hotline: "+84 900 123 456",
-      email: "hello@nestora.vn",
+      email: "lienhe@yensaohieuhien.vn",
       businessHours: "08h30 - 20h30 T2-T7, CN: 08h30 - 17h30",
       socialLinks: [
         { platform: "facebook", url: "https://facebook.com" },
@@ -308,7 +308,7 @@ async function seedIfEmpty(strapi: Core.Strapi): Promise<void> {
     data: {
       heroSlides: [
         {
-          title: "Nestora",
+          title: "Yến Sào Hiếu Hiền",
           subtitle: "Yến sào tuyển chọn – bồi bổ tinh tế mỗi ngày.",
           ctaLabel: "Khám phá sản phẩm",
           ctaHref: "/san-pham",
@@ -338,11 +338,11 @@ async function seedIfEmpty(strapi: Core.Strapi): Promise<void> {
         { title: "Set quà biếu tặng", href: "/danh-muc/set-qua" },
         { title: "Đông trùng hạ thảo", href: "/danh-muc/dong-trung-ha-thao" },
       ],
-      whyChooseTitle: "Vì sao chọn Nestora?",
+      whyChooseTitle: "Vì sao chọn Yến Sào Hiếu Hiền?",
       whyChooseBody:
         "<ul><li>Giá trị dinh dưỡng cao với mức giá hợp lý cho gia đình Việt.</li><li>Không phụ gia, quy trình thủ công tuyển chọn khắt khe.</li><li>Đóng gói tinh tế, phù hợp dùng hàng ngày và làm quà.</li></ul>",
       ctaTitle: "Tư vấn chọn yến phù hợp",
-      ctaBody: "Đội ngũ Nestora sẵn sàng hỗ trợ bạn chọn sản phẩm đúng nhu cầu.",
+      ctaBody: "Đội ngũ Yến Sào Hiếu Hiền sẵn sàng hỗ trợ bạn chọn sản phẩm đúng nhu cầu.",
       ctaLabel: "Liên hệ ngay",
       ctaHref: "/lien-he",
     },
@@ -351,10 +351,10 @@ async function seedIfEmpty(strapi: Core.Strapi): Promise<void> {
 
   await strapi.documents("api::about-page.about-page").create({
     data: {
-      title: "Giới thiệu Nestora",
+      title: "Giới thiệu Yến Sào Hiếu Hiền",
       subtitle: "Thương hiệu yến sào Việt với tiêu chuẩn minh bạch.",
       content:
-        "<p>Nestora chuyên cung cấp tổ yến, yến chưng và set quà sức khỏe.</p><p>Chúng tôi theo đuổi quy trình tuyển chọn thủ công và truy xuất nguồn gốc rõ ràng.</p>",
+        "<p>Yến Sào Hiếu Hiền chuyên cung cấp tổ yến, yến chưng và set quà sức khỏe.</p><p>Chúng tôi theo đuổi quy trình tuyển chọn thủ công và truy xuất nguồn gốc rõ ràng.</p>",
     },
     status: "published",
   });
@@ -368,7 +368,7 @@ async function seedIfEmpty(strapi: Core.Strapi): Promise<void> {
     status: "published",
   });
 
-  strapi.log.info("Nestora demo content seeded.");
+  strapi.log.info("Yến Sào Hiếu Hiền demo content seeded.");
 }
 
 export default {

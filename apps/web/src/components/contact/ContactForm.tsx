@@ -32,7 +32,7 @@ export function ContactForm() {
       if (!response.ok) {
         throw new Error("Contact failed");
       }
-      setSuccess("Đã gửi liên hệ. Nestora sẽ phản hồi sớm nhất.");
+      setSuccess("Đã gửi liên hệ. Yến Sào Hiếu Hiền sẽ phản hồi sớm nhất.");
       event.currentTarget.reset();
     } catch {
       setError("Không gửi được liên hệ. Vui lòng thử lại.");

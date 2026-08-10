@@ -12,7 +12,7 @@ export default async function AboutPage() {
     <div className="container-page py-12">
       <p className="text-xs uppercase tracking-[0.2em] text-muted">Về chúng tôi</p>
       <h1 className="mt-3 font-[family-name:var(--font-display)] text-4xl text-brand">
-        {about?.title ?? "Giới thiệu Nestora"}
+        {about?.title ?? "Giới thiệu Yến Sào Hiếu Hiền"}
       </h1>
       {about?.subtitle ? <p className="mt-3 text-lg text-muted">{about.subtitle}</p> : null}
       <div
@@ -20,7 +20,7 @@ export default async function AboutPage() {
         dangerouslySetInnerHTML={{
           __html:
             about?.content ??
-            "<p>Nestora chuyên cung cấp tổ yến, yến chưng và set quà sức khỏe.</p>",
+            "<p>Yến Sào Hiếu Hiền chuyên cung cấp tổ yến, yến chưng và set quà sức khỏe.</p>",
         }}
       />
     </div>

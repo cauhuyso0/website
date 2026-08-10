@@ -79,7 +79,7 @@ export const useCartStore = create<CartState>()(
         get().items.reduce((sum, item) => sum + item.unitPrice * item.quantity, 0),
     }),
     {
-      name: "nestora-cart",
+      name: "hieu-hien-cart",
     }
   )
 );
