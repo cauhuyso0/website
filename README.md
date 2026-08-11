@@ -1,6 +1,6 @@
-# Nestora — Website bán yến sào (Next.js + Strapi)
+# Yến Sào Hiếu Hiền — Website bán yến sào (Next.js + Strapi)
 
-Monorepo storefront + CMS cho thương hiệu placeholder **Nestora**: catalog sản phẩm, giỏ hàng, checkout COD, blog và liên hệ. Cấu trúc UX tham chiếu các site yến sào phổ biến, nội dung/ảnh là bản demo riêng.
+Monorepo storefront + CMS cho thương hiệu **Yến Sào Hiếu Hiền**: catalog sản phẩm, giỏ hàng, checkout COD, blog và liên hệ.
 
 ## Cấu trúc
 
@@ -67,6 +67,10 @@ Mở http://localhost:3000
 | `npm run dev:cms` | Strapi develop |
 | `npm run build:web` | Build storefront |
 | `npm run build:cms` | Build Strapi admin |
+
+## Deploy (all-in VPS Vietnix + PAVietnam)
+
+Xem [DEPLOY.md](DEPLOY.md). Next.js + Strapi + Postgres chạy trên một VPS.
 
 ## Ngoài MVP
 
