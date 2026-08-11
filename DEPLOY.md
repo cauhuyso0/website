@@ -63,13 +63,23 @@ free -h
 
 ```bash
 apt update && apt upgrade -y
-apt install -y curl git nginx certbot python3-certbot-nginx ufw postgresql postgresql-contrib
+apt install -y curl git nginx certbot python3-certbot-nginx ufw ca-certificates gnupg
 
 curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
 apt install -y nodejs
 npm install -g pm2
 
-node -v   # >= 20
+# Docker Engine + Compose plugin
+install -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+chmod a+r /etc/apt/keyrings/docker.asc
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo $VERSION_CODENAME) stable" > /etc/apt/sources.list.d/docker.list
+apt update
+apt install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
+systemctl enable --now docker
+
+node -v          # >= 20
+docker compose version
 ```
 
 Firewall (mở SSH trước):
@@ -81,26 +91,11 @@ ufw allow 443
 ufw enable
 ```
 
-Không mở port 3000 / 1337 ra ngoài — chỉ Nginx 80/443.
+Không mở port 3000 / 1337 / 5432 ra ngoài — chỉ Nginx 80/443.
 
 ---
 
-## 4. PostgreSQL
-
-```bash
-sudo -u postgres psql
-```
-
-```sql
-CREATE USER strapi WITH PASSWORD 'MAT_KHAU_MANH';
-CREATE DATABASE strapi OWNER strapi;
-GRANT ALL PRIVILEGES ON DATABASE strapi TO strapi;
-\q
-```
-
----
-
-## 5. Clone repo
+## 4. Clone repo + Postgres Docker
 
 ```bash
 mkdir -p /var/www
@@ -109,9 +104,34 @@ git clone https://github.com/cauhuyso0/website.git
 cd website
 ```
 
+Tạo `docker/postgres.env` (đổi mật khẩu mạnh):
+
+```bash
+cp docker/postgres.env.example docker/postgres.env
+nano docker/postgres.env
+```
+
+```env
+POSTGRES_DB=strapi
+POSTGRES_USER=strapi
+POSTGRES_PASSWORD=MAT_KHAU_MANH
+```
+
+Chạy DB (chỉ listen `127.0.0.1:5432`):
+
+```bash
+docker compose up -d
+docker compose ps
+docker compose logs -f postgres
+```
+
+Đợi `healthy` / `database system is ready to accept connections`, rồi Ctrl+C thoát log.
+
+Strapi kết nối `DATABASE_HOST=127.0.0.1` như Postgres cài native.
+
 ---
 
-## 6. Cấu hình và chạy Strapi
+## 5. Cấu hình và chạy Strapi
 
 ```bash
 cd /var/www/website/apps/cms
@@ -155,7 +175,7 @@ npm run build
 
 ---
 
-## 7. Cấu hình và build Next.js
+## 6. Cấu hình và build Next.js
 
 Tạo `/var/www/website/apps/web/.env.production`:
 
@@ -175,7 +195,7 @@ npm run build
 
 ---
 
-## 8. PM2 — chạy cả hai app
+## 7. PM2 — chạy cả hai app
 
 Từ thư mục repo:
 
@@ -196,7 +216,7 @@ curl -I http://127.0.0.1:3000
 
 ---
 
-## 9. Nginx
+## 8. Nginx
 
 Tạo `/etc/nginx/sites-available/hieuhien`:
 
@@ -253,7 +273,7 @@ certbot --nginx -d your-domain.com -d www.your-domain.com -d cms.your-domain.com
 
 ---
 
-## 10. Lần đầu vào CMS
+## 9. Lần đầu vào CMS
 
 1. Mở `https://cms.your-domain.com/admin` → tạo tài khoản admin.
 2. Kiểm tra Product, Home Page, Site Setting (seed chạy khi DB trống).
@@ -287,7 +307,7 @@ crontab -e
 ```
 
 ```cron
-0 3 * * * pg_dump -U strapi strapi > /root/backups/strapi-$(date +\%F).sql
+0 3 * * * docker exec hieuhien-postgres pg_dump -U strapi strapi > /root/backups/strapi-$(date +\%F).sql
 0 3 * * * tar -czf /root/backups/uploads-$(date +\%F).tar.gz /var/www/website/apps/cms/public/uploads
 ```
 
@@ -304,6 +324,8 @@ crontab -e
 | Certbot fail | DNS chưa trỏ IP VPS |
 | Build bị kill / Killed | Chưa bật swap, hoặc đang build 2 app cùng lúc |
 | Hết RAM lúc chạy | `pm2 logs` — tăng VPS lên 4GB nếu thường xuyên |
+| Strapi không kết nối DB | `docker compose ps` — container chưa up / sai password trong 2 file `.env` |
+| Port 5432 already in use | Đã cài Postgres native — gỡ `apt remove postgresql` hoặc đổi port |
 
 Lệnh hữu ích:
 
@@ -311,5 +333,9 @@ Lệnh hữu ích:
 pm2 status
 pm2 logs web
 pm2 logs strapi
+docker compose -f /var/www/website/docker-compose.yml ps
+docker compose -f /var/www/website/docker-compose.yml logs postgres
 free -h
 ```
+
+Postgres tự chạy lại sau reboot (`restart: unless-stopped`). Volume data nằm trong Docker volume `postgres_data`.

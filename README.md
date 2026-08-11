@@ -68,9 +68,18 @@ Mở http://localhost:3000
 | `npm run build:web` | Build storefront |
 | `npm run build:cms` | Build Strapi admin |
 
+## Postgres (Docker)
+
+```bash
+cp docker/postgres.env.example docker/postgres.env
+docker compose up -d
+```
+
+Strapi kết nối `127.0.0.1:5432` (xem `apps/cms/.env.example`).
+
 ## Deploy (all-in VPS Vietnix + PAVietnam)
 
-Xem [DEPLOY.md](DEPLOY.md). Next.js + Strapi + Postgres chạy trên một VPS.
+Xem [DEPLOY.md](DEPLOY.md). Next.js + Strapi trên VPS, Postgres chạy Docker.
 
 ## Ngoài MVP
 

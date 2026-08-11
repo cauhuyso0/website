@@ -16,6 +16,7 @@ build/
 .env.local
 .env.*.local
 !.env.example
+docker/postgres.env
 
 # Logs / OS
 *.log
