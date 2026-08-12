@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_product_topping_options",
+  "info": {
+    "displayName": "Chọn vị",
+    "icon": "plus"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "priceAddon": {
+      "type": "decimal",
+      "default": 0
+    },
+    "isFavorite": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

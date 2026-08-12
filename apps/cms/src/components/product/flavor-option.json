@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_product_flavor_options",
+  "info": {
+    "displayName": "Chọn vị",
+    "icon": "cup"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "isFavorite": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

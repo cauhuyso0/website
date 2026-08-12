@@ -64,6 +64,25 @@
       "relation": "oneToMany",
       "target": "api::product-variant.product-variant",
       "mappedBy": "product"
+    },
+    "showCustomization": {
+      "type": "boolean",
+      "default": false
+    },
+    "flavorOptions": {
+      "type": "component",
+      "repeatable": true,
+      "component": "product.flavor-option"
+    },
+    "toppingOptions": {
+      "type": "component",
+      "repeatable": true,
+      "component": "product.topping-option"
+    },
+    "sweetnessOptions": {
+      "type": "component",
+      "repeatable": true,
+      "component": "product.sweetness-option"
     }
   }
 }

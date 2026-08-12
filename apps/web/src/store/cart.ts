@@ -14,6 +14,8 @@ export type CartItem = {
   unitPrice: number;
   quantity: number;
   imageUrl?: string | null;
+  customizationKey?: string;
+  customizationNote?: string;
 };
 
 type CartState = {
@@ -26,8 +28,12 @@ type CartState = {
   subtotal: () => number;
 };
 
-function buildKey(productDocumentId: string, variantDocumentId?: string): string {
-  return `${productDocumentId}:${variantDocumentId ?? "base"}`;
+function buildKey(
+  productDocumentId: string,
+  variantDocumentId?: string,
+  customizationKey?: string
+): string {
+  return `${productDocumentId}:${variantDocumentId ?? "base"}:${customizationKey ?? ""}`;
 }
 
 export const useCartStore = create<CartState>()(
@@ -35,7 +41,11 @@ export const useCartStore = create<CartState>()(
     (set, get) => ({
       items: [],
       addItem: (item) => {
-        const key = buildKey(item.productDocumentId, item.variantDocumentId);
+        const key = buildKey(
+          item.productDocumentId,
+          item.variantDocumentId,
+          item.customizationKey
+        );
         const existing = get().items.find((entry) => entry.key === key);
         if (existing) {
           set({

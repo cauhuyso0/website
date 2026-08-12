@@ -1,6 +1,10 @@
 import { logger } from "@/lib/logger";
 
-const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL ?? "http://localhost:1337";
+const PUBLIC_STRAPI_URL =
+  process.env.NEXT_PUBLIC_STRAPI_URL ?? "http://localhost:1337";
+
+const STRAPI_URL =
+  process.env.STRAPI_INTERNAL_URL ?? PUBLIC_STRAPI_URL;
 
 type StrapiFetchOptions = {
   path: string;
@@ -64,5 +68,5 @@ export async function strapiFetch<T>(options: StrapiFetchOptions): Promise<T> {
 }
 
 export function getStrapiBaseUrl(): string {
-  return STRAPI_URL;
+  return PUBLIC_STRAPI_URL;
 }

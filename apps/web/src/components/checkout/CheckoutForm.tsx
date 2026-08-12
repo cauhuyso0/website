@@ -57,7 +57,9 @@ export function CheckoutForm() {
           ...parsed,
           items: items.map((item) => ({
             productName: item.productName,
-            variantName: item.variantName,
+            variantName: [item.variantName, item.customizationNote]
+              .filter(Boolean)
+              .join(" · "),
             sku: item.sku,
             unitPrice: item.unitPrice,
             quantity: item.quantity,
@@ -111,6 +113,9 @@ export function CheckoutForm() {
               <span>
                 {item.productName}
                 {item.variantName ? ` (${item.variantName})` : ""} × {item.quantity}
+                {item.customizationNote ? (
+                  <span className="block text-xs text-muted">{item.customizationNote}</span>
+                ) : null}
               </span>
               <span>{formatVnd(item.unitPrice * item.quantity)}</span>
             </li>

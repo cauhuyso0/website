@@ -4,6 +4,7 @@ import { Commitments } from "@/components/home/Commitments";
 import { Hero } from "@/components/home/Hero";
 import { ProductCard } from "@/components/product/ProductCard";
 import { Button } from "@/components/ui/Button";
+import { StrapiImage } from "@/components/ui/StrapiImage";
 import { findArticles, findHomePage, findSiteSetting } from "@/repositories/content.repository";
 import { findProducts } from "@/repositories/product.repository";
 
@@ -16,6 +17,12 @@ export default async function HomePage() {
   ]);
 
   const brandName = setting?.brandName ?? "Yến Sào Hiếu Hiền";
+
+  const featuredProducts = [...featured.data].sort((left, right) => {
+    const leftHasImage = (left.images?.length ?? 0) > 0 ? 1 : 0;
+    const rightHasImage = (right.images?.length ?? 0) > 0 ? 1 : 0;
+    return rightHasImage - leftHasImage;
+  });
 
   return (
     <>
@@ -36,11 +43,11 @@ export default async function HomePage() {
           </Button>
         </div>
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {featured.data.map((product) => (
+          {featuredProducts.map((product) => (
             <ProductCard key={product.documentId} product={product} />
           ))}
         </div>
-        {featured.data.length === 0 ? (
+        {featuredProducts.length === 0 ? (
           <p className="text-muted">
             Chưa có dữ liệu sản phẩm. Hãy chạy Strapi (`npm run dev:cms`) để seed nội dung demo.
           </p>
@@ -87,7 +94,15 @@ export default async function HomePage() {
         <div className="grid gap-8 md:grid-cols-3">
           {articles.data.map((article) => (
             <Link key={article.documentId} href={`/bai-viet/${article.slug}`} className="group">
-              <div className="mb-4 aspect-[16/10] bg-[linear-gradient(135deg,#d9c3a1,#5a3a28)] transition group-hover:brightness-110" />
+              <div className="relative mb-4 aspect-[16/10] overflow-hidden bg-[linear-gradient(135deg,#d9c3a1,#5a3a28)] transition group-hover:brightness-110">
+                <StrapiImage
+                  media={article.cover}
+                  alt={article.title}
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover transition duration-700 group-hover:scale-105"
+                  fallbackClassName="absolute inset-0 bg-[linear-gradient(135deg,#d9c3a1,#5a3a28)]"
+                />
+              </div>
               <h3 className="font-[family-name:var(--font-display)] text-xl text-brand">
                 {article.title}
               </h3>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { StrapiImage } from "@/components/ui/StrapiImage";
 import { findArticles } from "@/repositories/content.repository";
 
 export const metadata: Metadata = {
@@ -25,7 +26,15 @@ export default async function ArticlesPage({
       <div className="mt-10 grid gap-8 md:grid-cols-3">
         {articles.data.map((article) => (
           <Link key={article.documentId} href={`/bai-viet/${article.slug}`} className="group">
-            <div className="mb-4 aspect-[16/10] bg-[linear-gradient(135deg,#d9c3a1,#5a3a28)] transition group-hover:brightness-110" />
+            <div className="relative mb-4 aspect-[16/10] overflow-hidden bg-[linear-gradient(135deg,#d9c3a1,#5a3a28)] transition group-hover:brightness-110">
+              <StrapiImage
+                media={article.cover}
+                alt={article.title}
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover transition duration-700 group-hover:scale-105"
+                fallbackClassName="absolute inset-0 bg-[linear-gradient(135deg,#d9c3a1,#5a3a28)]"
+              />
+            </div>
             <p className="text-xs uppercase tracking-[0.14em] text-muted">
               {article.category?.name ?? "Yến Sào Hiếu Hiền"}
             </p>

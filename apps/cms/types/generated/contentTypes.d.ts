@@ -776,6 +776,7 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.RichText;
+    flavorOptions: Schema.Attribute.Component<'product.flavor-option', true>;
     images: Schema.Attribute.Media<'images', true>;
     isFeatured: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -790,11 +791,18 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
     seoDescription: Schema.Attribute.Text;
     seoTitle: Schema.Attribute.String;
     shortDescription: Schema.Attribute.Text;
+    showCustomization: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
     slug: Schema.Attribute.UID<'name'> & Schema.Attribute.Required;
     stockStatus: Schema.Attribute.Enumeration<
       ['in_stock', 'out_of_stock', 'preorder']
     > &
       Schema.Attribute.DefaultTo<'in_stock'>;
+    sweetnessOptions: Schema.Attribute.Component<
+      'product.sweetness-option',
+      true
+    >;
+    toppingOptions: Schema.Attribute.Component<'product.topping-option', true>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

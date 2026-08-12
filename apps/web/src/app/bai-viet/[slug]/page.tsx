@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { StrapiImage } from "@/components/ui/StrapiImage";
 import { findArticleBySlug } from "@/repositories/content.repository";
 
 type Params = Promise<{ slug: string }>;
@@ -33,7 +34,15 @@ export default async function ArticleDetailPage({ params }: { params: Params }) 
         {article.title}
       </h1>
       {article.excerpt ? <p className="mt-4 max-w-3xl text-lg text-muted">{article.excerpt}</p> : null}
-      <div className="my-8 aspect-[21/9] max-w-4xl bg-[linear-gradient(135deg,#d9c3a1,#5a3a28)]" />
+      <div className="relative my-8 aspect-[21/9] max-w-4xl overflow-hidden bg-[linear-gradient(135deg,#d9c3a1,#5a3a28)]">
+        <StrapiImage
+          media={article.cover}
+          alt={article.title}
+          sizes="(max-width: 768px) 100vw, 896px"
+          className="object-cover"
+          fallbackClassName="absolute inset-0 bg-[linear-gradient(135deg,#d9c3a1,#5a3a28)]"
+        />
+      </div>
       <div
         className="prose-nestora max-w-3xl"
         dangerouslySetInnerHTML={{ __html: article.content }}

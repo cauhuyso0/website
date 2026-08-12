@@ -20,6 +20,9 @@ export async function findProducts(params?: {
       "populate[images]": true,
       "populate[category]": true,
       "populate[variants]": true,
+      "populate[flavorOptions]": true,
+      "populate[toppingOptions]": true,
+      "populate[sweetnessOptions]": true,
     };
 
     if (params?.categorySlug) {
@@ -34,6 +37,7 @@ export async function findProducts(params?: {
       path: "/api/products",
       query,
       tags: ["products"],
+      revalidate: 30,
     });
   } catch (error) {
     logger.error("findProducts failed", error);
@@ -50,6 +54,9 @@ export async function findProductBySlug(slug: string): Promise<Product | null> {
         "populate[images]": true,
         "populate[category]": true,
         "populate[variants]": true,
+        "populate[flavorOptions]": true,
+        "populate[toppingOptions]": true,
+        "populate[sweetnessOptions]": true,
       },
       tags: [`product-${slug}`],
     });

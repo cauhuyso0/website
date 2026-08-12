@@ -26,7 +26,8 @@ Thumbs.db
 # Strapi
 apps/cms/.tmp/
 apps/cms/.cache/
-apps/cms/public/uploads/
+apps/cms/public/uploads/*
+!apps/cms/public/uploads/.gitkeep
 apps/cms/database/exports/
 apps/cms/dist/
 

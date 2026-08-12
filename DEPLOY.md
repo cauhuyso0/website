@@ -170,6 +170,7 @@ CORS_ORIGINS=https://your-domain.com,https://www.your-domain.com
 ```
 
 ```bash
+mkdir -p /var/www/website/apps/cms/public/uploads
 npm run build
 ```
 
@@ -181,11 +182,13 @@ Tạo `/var/www/website/apps/web/.env.production`:
 
 ```env
 NEXT_PUBLIC_STRAPI_URL=https://cms.your-domain.com
+STRAPI_INTERNAL_URL=http://127.0.0.1:1337
 PORT=3000
 HOSTNAME=127.0.0.1
 ```
 
-`NEXT_PUBLIC_*` phải có **trước** `npm run build` (bị nhúng vào client).
+- `STRAPI_INTERNAL_URL`: Next **trên server** gọi Strapi nội bộ (tránh vòng DNS/SSL).
+- `NEXT_PUBLIC_*` phải có **trước** `npm run build` (ảnh trên trình duyệt).
 
 ```bash
 cd /var/www/website/apps/web
@@ -206,6 +209,17 @@ pm2 save
 pm2 startup
 pm2 status
 ```
+
+Sau này **chỉ** restart, đừng `stop` rồi `start` lại từ thư mục khác:
+
+```bash
+pm2 restart strapi
+pm2 restart web
+# hoặc
+pm2 restart all
+```
+
+`strapi start` cần admin đã `npm run build`. Nếu sau restart lại lỗi `index.html`, build lại CMS rồi `pm2 restart strapi`.
 
 Kiểm tra local:
 
@@ -318,7 +332,7 @@ crontab -e
 | Hiện tượng | Cách xử lý |
 |------------|------------|
 | 502 Bad Gateway | `pm2 status` / `pm2 logs` — app chết hoặc chưa start |
-| Trang không có sản phẩm | Sai `NEXT_PUBLIC_STRAPI_URL` (phải rebuild web) / CMS down / chưa Publish |
+| Trang không có sản phẩm | Thiếu `STRAPI_INTERNAL_URL` / CMS down / chưa Publish / quên rebuild web |
 | Ảnh không hiện | Sai `PUBLIC_URL` trên Strapi, restart `strapi` |
 | CORS error | `CORS_ORIGINS` thiếu domain shop, `pm2 restart strapi` |
 | Certbot fail | DNS chưa trỏ IP VPS |

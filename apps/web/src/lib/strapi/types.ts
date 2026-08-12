@@ -26,6 +26,21 @@ export type ProductVariant = {
   stock?: number | null;
 };
 
+export type FlavorOption = {
+  label: string;
+  isFavorite?: boolean;
+};
+
+export type ToppingOption = {
+  label: string;
+  priceAddon?: number;
+  isFavorite?: boolean;
+};
+
+export type SweetnessOption = {
+  label: string;
+};
+
 export type Product = {
   id: number;
   documentId: string;
@@ -40,6 +55,10 @@ export type Product = {
   stockStatus?: "in_stock" | "out_of_stock" | "preorder";
   seoTitle?: string | null;
   seoDescription?: string | null;
+  showCustomization?: boolean;
+  flavorOptions?: FlavorOption[] | null;
+  toppingOptions?: ToppingOption[] | null;
+  sweetnessOptions?: SweetnessOption[] | null;
   category?: Category | null;
   variants?: ProductVariant[] | null;
 };

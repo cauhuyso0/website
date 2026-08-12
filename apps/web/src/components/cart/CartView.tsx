@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/Button";
@@ -35,14 +36,30 @@ export function CartView() {
       <div className="space-y-6">
         {items.map((item) => (
           <div key={item.key} className="flex flex-col gap-3 border-b border-line pb-5 sm:flex-row sm:items-center sm:justify-between">
-            <div>
+            <div className="flex items-start gap-4">
+              <div className="relative h-20 w-16 shrink-0 overflow-hidden bg-[linear-gradient(145deg,#efe2cf,#8d6b45)]">
+                {item.imageUrl ? (
+                  <Image
+                    src={item.imageUrl}
+                    alt={item.productName}
+                    fill
+                    sizes="64px"
+                    className="object-cover"
+                  />
+                ) : null}
+              </div>
+              <div>
               <Link href={`/san-pham/${item.productSlug}`} className="font-[family-name:var(--font-display)] text-xl text-brand">
                 {item.productName}
               </Link>
               {item.variantName ? (
                 <p className="mt-1 text-sm text-muted">{item.variantName}</p>
               ) : null}
+              {item.customizationNote ? (
+                <p className="mt-1 text-sm text-muted">{item.customizationNote}</p>
+              ) : null}
               <p className="mt-2 text-sm">{formatVnd(item.unitPrice)}</p>
+              </div>
             </div>
             <div className="flex items-center gap-3">
               <input

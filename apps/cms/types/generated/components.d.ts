@@ -63,6 +63,42 @@ export interface OrderOrderItem extends Struct.ComponentSchema {
   };
 }
 
+export interface ProductFlavorOption extends Struct.ComponentSchema {
+  collectionName: 'components_product_flavor_options';
+  info: {
+    displayName: 'Ch\u1ECDn v\u1ECB';
+    icon: 'cup';
+  };
+  attributes: {
+    isFavorite: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface ProductSweetnessOption extends Struct.ComponentSchema {
+  collectionName: 'components_product_sweetness_options';
+  info: {
+    displayName: '\u0110\u1ED9 ng\u1ECDt';
+    icon: 'chartCircle';
+  };
+  attributes: {
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface ProductToppingOption extends Struct.ComponentSchema {
+  collectionName: 'components_product_topping_options';
+  info: {
+    displayName: 'Ch\u1ECDn v\u1ECB';
+    icon: 'plus';
+  };
+  attributes: {
+    isFavorite: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+    priceAddon: Schema.Attribute.Decimal & Schema.Attribute.DefaultTo<0>;
+  };
+}
+
 export interface SharedShowroom extends Struct.ComponentSchema {
   collectionName: 'components_shared_showrooms';
   info: {
@@ -98,6 +134,9 @@ declare module '@strapi/strapi' {
       'home.commitment': HomeCommitment;
       'home.hero-slide': HomeHeroSlide;
       'order.order-item': OrderOrderItem;
+      'product.flavor-option': ProductFlavorOption;
+      'product.sweetness-option': ProductSweetnessOption;
+      'product.topping-option': ProductToppingOption;
       'shared.showroom': SharedShowroom;
       'shared.social-link': SharedSocialLink;
     }
