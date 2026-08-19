@@ -99,3 +99,13 @@ a {
 .animate-hero-media {
   animation: soft-zoom 8s ease-out both;
 }
+
+/* Hide scrollbars (keep scrolling behavior) */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none; /* Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}

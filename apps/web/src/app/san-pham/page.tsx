@@ -35,7 +35,7 @@ export default async function ProductsPage({
         <Link
           href="/san-pham"
           className={`rounded-md border px-3 py-1.5 text-sm ${
-            !categorySlug ? "border-brand bg-brand text-surface" : "border-line"
+            !categorySlug ? "border-brand bg-brand !text-surface" : "border-line"
           }`}
         >
           Tất cả
@@ -46,7 +46,7 @@ export default async function ProductsPage({
             href={`/san-pham?category=${category.slug}`}
             className={`rounded-md border px-3 py-1.5 text-sm ${
               categorySlug === category.slug
-                ? "border-brand bg-brand text-surface"
+                ? "border-brand bg-brand !text-surface"
                 : "border-line"
             }`}
           >
@@ -80,7 +80,7 @@ export default async function ProductsPage({
                 href={`/san-pham?${query.toString()}`}
                 className={`rounded-md border px-3 py-1.5 text-sm ${
                   pageNumber === pagination.page
-                    ? "border-brand bg-brand text-surface"
+                    ? "border-brand bg-brand !text-surface"
                     : "border-line"
                 }`}
               >

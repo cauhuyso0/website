@@ -16,7 +16,6 @@ const nav = [
   { href: "/gioi-thieu", label: "Giới thiệu" },
   { href: "/san-pham", label: "Sản phẩm" },
   { href: "/cam-nang", label: "Cẩm nang" },
-  { href: "/bai-viet", label: "Bài viết" },
   { href: "/lien-he", label: "Liên hệ" },
 ];
 

@@ -1,19 +1,16 @@
-import Link from "next/link";
 import { CategoryHighlights } from "@/components/home/CategoryHighlights";
 import { Commitments } from "@/components/home/Commitments";
 import { Hero } from "@/components/home/Hero";
 import { ProductCard } from "@/components/product/ProductCard";
 import { Button } from "@/components/ui/Button";
-import { StrapiImage } from "@/components/ui/StrapiImage";
-import { findArticles, findHomePage, findSiteSetting } from "@/repositories/content.repository";
+import { findHomePage, findSiteSetting } from "@/repositories/content.repository";
 import { findProducts } from "@/repositories/product.repository";
 
 export default async function HomePage() {
-  const [home, setting, featured, articles] = await Promise.all([
+  const [home, setting, featured] = await Promise.all([
     findHomePage(),
     findSiteSetting(),
     findProducts({ featured: true, pageSize: 8 }),
-    findArticles(1, 3),
   ]);
 
   const brandName = setting?.brandName ?? "Yến Sào Hiếu Hiền";
@@ -26,7 +23,7 @@ export default async function HomePage() {
 
   return (
     <>
-      <Hero slide={home?.heroSlides?.[0]} brandName={brandName} />
+      <Hero slides={home?.heroSlides} brandName={brandName} />
       <Commitments items={home?.commitments ?? []} />
       <CategoryHighlights items={home?.categoryHighlights ?? []} />
 
@@ -84,33 +81,6 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="container-page py-16">
-        <div className="mb-8 flex items-end justify-between">
-          <h2 className="font-[family-name:var(--font-display)] text-3xl text-brand">Bài viết mới</h2>
-          <Link href="/bai-viet" className="text-sm text-muted hover:text-brand">
-            Xem thêm
-          </Link>
-        </div>
-        <div className="grid gap-8 md:grid-cols-3">
-          {articles.data.map((article) => (
-            <Link key={article.documentId} href={`/bai-viet/${article.slug}`} className="group">
-              <div className="relative mb-4 aspect-[16/10] overflow-hidden bg-[linear-gradient(135deg,#d9c3a1,#5a3a28)] transition group-hover:brightness-110">
-                <StrapiImage
-                  media={article.cover}
-                  alt={article.title}
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover transition duration-700 group-hover:scale-105"
-                  fallbackClassName="absolute inset-0 bg-[linear-gradient(135deg,#d9c3a1,#5a3a28)]"
-                />
-              </div>
-              <h3 className="font-[family-name:var(--font-display)] text-xl text-brand">
-                {article.title}
-              </h3>
-              <p className="mt-2 line-clamp-2 text-sm text-muted">{article.excerpt}</p>
-            </Link>
-          ))}
-        </div>
-      </section>
     </>
   );
 }

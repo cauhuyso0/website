@@ -19,9 +19,10 @@ import { useCartStore } from "@/store/cart";
 
 type AddToCartPanelProps = {
   product: Product;
+  onFlavorChange?: (flavorLabel: string, flavorIndex: number) => void;
 };
 
-export function AddToCartPanel({ product }: AddToCartPanelProps) {
+export function AddToCartPanel({ product, onFlavorChange }: AddToCartPanelProps) {
   const variants = useMemo(() => product.variants ?? [], [product.variants]);
   const [variantId, setVariantId] = useState(variants[0]?.documentId);
   const [quantity, setQuantity] = useState(1);
@@ -114,7 +115,13 @@ export function AddToCartPanel({ product }: AddToCartPanelProps) {
           flavorOptions={flavorOptions}
           sweetnessOptions={sweetnessOptions}
           value={customization}
-          onChange={setCustomization}
+          onChange={(val) => {
+            setCustomization(val);
+            if (val.flavor && onFlavorChange) {
+              const idx = flavorOptions.findIndex((o) => o.label === val.flavor);
+              if (idx >= 0) onFlavorChange(val.flavor, idx);
+            }
+          }}
         />
       ) : null}
 

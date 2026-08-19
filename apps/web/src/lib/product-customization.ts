@@ -20,14 +20,8 @@ export const DEFAULT_SWEETNESS_OPTIONS: SweetnessOption[] = [
   { label: "100% đường" },
 ];
 
-const YEN_CHUNG_CATEGORY_SLUG = "yen-chung";
-
 function shouldUseDefaultCustomizationOptions(product: Product): boolean {
-  if (product.showCustomization) {
-    return true;
-  }
-
-  return product.category?.slug === YEN_CHUNG_CATEGORY_SLUG;
+  return product.showCustomization === true;
 }
 
 function mergeFlavorOptions(product: Product): ToppingOption[] {

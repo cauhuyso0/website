@@ -51,9 +51,6 @@ export function Footer({
             <Link href="/san-pham" className="hover:text-accent-soft">
               Sản phẩm
             </Link>
-            <Link href="/bai-viet" className="hover:text-accent-soft">
-              Bài viết
-            </Link>
             <Link href="/lien-he" className="hover:text-accent-soft">
               Liên hệ
             </Link>

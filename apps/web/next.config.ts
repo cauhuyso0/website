@@ -40,6 +40,11 @@ const nextConfig: NextConfig = {
         port: "1337",
         pathname: "/uploads/**",
       },
+      {
+        protocol: "https",
+        hostname: "cms.yensaohieuhien.id.vn",
+        pathname: "/uploads/**",
+      },
       ...(strapiPattern ? [strapiPattern] : []),
     ],
   },
