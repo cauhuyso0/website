@@ -18,6 +18,7 @@ export async function findSiteSetting(): Promise<SiteSetting | null> {
         "populate[logo]": true,
         "populate[socialLinks]": true,
         "populate[showrooms]": true,
+        "populate[footerLinks]": true,
       },
       tags: ["site-setting"],
     });
@@ -36,6 +37,7 @@ export async function findHomePage(): Promise<HomePage | null> {
         "populate[heroSlides][populate]": "image",
         "populate[commitments]": true,
         "populate[categoryHighlights][populate]": "image",
+        "populate[ctaGallery][populate]": "image",
       },
       tags: ["home-page"],
     });

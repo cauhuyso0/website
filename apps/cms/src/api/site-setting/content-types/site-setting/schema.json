@@ -43,6 +43,26 @@
       "type": "component",
       "repeatable": true,
       "component": "shared.showroom"
+    },
+    "footerTitle": {
+      "type": "string"
+    },
+    "footerTagline": {
+      "type": "text"
+    },
+    "footerCopyright": {
+      "type": "string"
+    },
+    "footerShowroomsTitle": {
+      "type": "string"
+    },
+    "footerLinksTitle": {
+      "type": "string"
+    },
+    "footerLinks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.nav-link"
     }
   }
 }

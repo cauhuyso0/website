@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_home_gallery_slides",
+  "info": {
+    "displayName": "Gallery Slide",
+    "icon": "picture"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "alt": {
+      "type": "string"
+    }
+  }
+}

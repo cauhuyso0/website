@@ -658,6 +658,7 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     ctaBody: Schema.Attribute.Text;
+    ctaGallery: Schema.Attribute.Component<'home.gallery-slide', true>;
     ctaHref: Schema.Attribute.String;
     ctaLabel: Schema.Attribute.String;
     ctaTitle: Schema.Attribute.String;
@@ -830,6 +831,12 @@ export interface ApiSiteSettingSiteSetting extends Struct.SingleTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     email: Schema.Attribute.Email & Schema.Attribute.Required;
+    footerCopyright: Schema.Attribute.String;
+    footerLinks: Schema.Attribute.Component<'shared.nav-link', true>;
+    footerLinksTitle: Schema.Attribute.String;
+    footerShowroomsTitle: Schema.Attribute.String;
+    footerTagline: Schema.Attribute.Text;
+    footerTitle: Schema.Attribute.String;
     hotline: Schema.Attribute.String & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<

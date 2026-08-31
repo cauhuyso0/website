@@ -301,6 +301,15 @@ async function seedIfEmpty(strapi: Core.Strapi): Promise<void> {
           hotline: "0900 654 321",
         },
       ],
+      footerTitle: "Yến Sào Hiếu Hiền",
+      footerTagline: "Yến sạch – vị thật – gửi trao sức khỏe",
+      footerCopyright: "© 2026 Yến Sào Hiếu Hiền. All rights reserved.",
+      footerShowroomsTitle: "Hệ thống cửa hàng",
+      footerLinksTitle: "Liên kết",
+      footerLinks: [
+        { label: "Sản phẩm", href: "/san-pham" },
+        { label: "Liên hệ", href: "/lien-he" },
+      ],
     },
   });
 
@@ -345,6 +354,12 @@ async function seedIfEmpty(strapi: Core.Strapi): Promise<void> {
       ctaBody: "Đội ngũ Yến Sào Hiếu Hiền sẵn sàng hỗ trợ bạn chọn sản phẩm đúng nhu cầu.",
       ctaLabel: "Liên hệ ngay",
       ctaHref: "/lien-he",
+      ctaGallery: [
+        { alt: "Tư vấn chọn yến 1" },
+        { alt: "Tư vấn chọn yến 2" },
+        { alt: "Tư vấn chọn yến 3" },
+        { alt: "Tư vấn chọn yến 4" },
+      ],
     },
     status: "published",
   });

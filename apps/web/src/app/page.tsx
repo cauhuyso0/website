@@ -1,5 +1,6 @@
 import { CategoryHighlights } from "@/components/home/CategoryHighlights";
 import { Commitments } from "@/components/home/Commitments";
+import { CtaGallery } from "@/components/home/CtaGallery";
 import { Hero } from "@/components/home/Hero";
 import { ProductCard } from "@/components/product/ProductCard";
 import { Button } from "@/components/ui/Button";
@@ -79,6 +80,7 @@ export default async function HomePage() {
           </div>
           <Button href={home?.ctaHref ?? "/lien-he"}>{home?.ctaLabel ?? "Liên hệ ngay"}</Button>
         </div>
+        <CtaGallery slides={home?.ctaGallery} />
       </section>
 
     </>

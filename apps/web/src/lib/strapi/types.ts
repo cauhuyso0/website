@@ -95,6 +95,12 @@ export type SocialLink = {
   url: string;
 };
 
+export type NavLink = {
+  id?: number;
+  label: string;
+  href: string;
+};
+
 export type SiteSetting = {
   id: number;
   documentId: string;
@@ -106,6 +112,12 @@ export type SiteSetting = {
   businessHours?: string | null;
   socialLinks?: SocialLink[] | null;
   showrooms?: Showroom[] | null;
+  footerTitle?: string | null;
+  footerTagline?: string | null;
+  footerCopyright?: string | null;
+  footerShowroomsTitle?: string | null;
+  footerLinksTitle?: string | null;
+  footerLinks?: NavLink[] | null;
 };
 
 export type HeroSlide = {
@@ -130,6 +142,12 @@ export type CategoryHighlight = {
   image?: StrapiMedia | null;
 };
 
+export type GallerySlide = {
+  id?: number;
+  image?: StrapiMedia | null;
+  alt?: string | null;
+};
+
 export type HomePage = {
   id: number;
   documentId: string;
@@ -142,6 +160,7 @@ export type HomePage = {
   ctaBody?: string | null;
   ctaLabel?: string | null;
   ctaHref?: string | null;
+  ctaGallery?: GallerySlide[] | null;
 };
 
 export type AboutPage = {

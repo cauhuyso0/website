@@ -56,7 +56,7 @@ export function Header({ brandName, tagline, hotline, businessHours }: HeaderPro
       <div className="border-b border-line bg-surface/90">
         <div className="container-page flex items-center justify-between gap-6 py-4">
           <Link href="/" className="min-w-0">
-            <div className="font-[family-name:var(--font-display)] text-3xl tracking-wide text-brand md:text-4xl">
+            <div className="font-[family-name:var(--font-display)] text-xl tracking-wide text-brand md:text-2xl">
               {brandName}
             </div>
             {tagline ? (

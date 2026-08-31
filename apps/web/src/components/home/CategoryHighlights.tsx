@@ -30,11 +30,15 @@ export function CategoryHighlights({ items }: { items: CategoryHighlight[] }) {
               sizes="(max-width: 768px) 50vw, 25vw"
               className="object-cover transition duration-700 group-hover:scale-105"
             />
-              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(20,10,6,0.15)_0%,rgba(20,10,6,0.72)_100%)]" />
-              <div className="relative z-10">
-                <h3 className="font-[family-name:var(--font-display)] text-2xl">{item.title}</h3>
-                <p className="mt-3 text-sm text-accent-soft">Xem sản phẩm →</p>
-              </div>
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(20,10,6,0.25)_0%,rgba(20,10,6,0.85)_100%)]" />
+            <div className="relative z-10">
+              <h3 className="font-[family-name:var(--font-display)] text-2xl text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.45)]">
+                {item.title}
+              </h3>
+              <p className="mt-3 text-sm text-white/90 drop-shadow-[0_1px_4px_rgba(0,0,0,0.4)]">
+                Xem sản phẩm →
+              </p>
+            </div>
             </Link>
         ))}
       </div>

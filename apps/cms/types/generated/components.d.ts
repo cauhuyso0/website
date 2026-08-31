@@ -25,6 +25,18 @@ export interface HomeCommitment extends Struct.ComponentSchema {
   };
 }
 
+export interface HomeGallerySlide extends Struct.ComponentSchema {
+  collectionName: 'components_home_gallery_slides';
+  info: {
+    displayName: 'Gallery Slide';
+    icon: 'picture';
+  };
+  attributes: {
+    alt: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images'>;
+  };
+}
+
 export interface HomeHeroSlide extends Struct.ComponentSchema {
   collectionName: 'components_home_hero_slides';
   info: {
@@ -99,6 +111,18 @@ export interface ProductToppingOption extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedNavLink extends Struct.ComponentSchema {
+  collectionName: 'components_shared_nav_links';
+  info: {
+    displayName: 'Nav Link';
+    icon: 'link';
+  };
+  attributes: {
+    href: Schema.Attribute.String & Schema.Attribute.Required;
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SharedShowroom extends Struct.ComponentSchema {
   collectionName: 'components_shared_showrooms';
   info: {
@@ -132,11 +156,13 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'home.category-highlight': HomeCategoryHighlight;
       'home.commitment': HomeCommitment;
+      'home.gallery-slide': HomeGallerySlide;
       'home.hero-slide': HomeHeroSlide;
       'order.order-item': OrderOrderItem;
       'product.flavor-option': ProductFlavorOption;
       'product.sweetness-option': ProductSweetnessOption;
       'product.topping-option': ProductToppingOption;
+      'shared.nav-link': SharedNavLink;
       'shared.showroom': SharedShowroom;
       'shared.social-link': SharedSocialLink;
     }

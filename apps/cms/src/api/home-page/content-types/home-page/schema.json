@@ -42,6 +42,11 @@
     },
     "ctaHref": {
       "type": "string"
+    },
+    "ctaGallery": {
+      "type": "component",
+      "repeatable": true,
+      "component": "home.gallery-slide"
     }
   }
 }
