@@ -104,14 +104,14 @@ export function CtaGallery({ slides }: CtaGalleryProps) {
             return (
               <div
                 key={slide.id ?? slideIndex}
-                className="relative aspect-[4/3] overflow-hidden rounded-lg bg-[linear-gradient(135deg,#efe2cf,#8d6b45)]"
+                className="relative aspect-[3/4] min-h-[200px] overflow-hidden rounded-lg bg-[linear-gradient(135deg,#efe2cf,#8d6b45)] sm:min-h-[240px] lg:min-h-[280px]"
               >
                 {slide.image ? (
                   <StrapiImage
                     media={slide.image}
                     alt={slide.alt ?? `Tư vấn chọn yến ${slideIndex + 1}`}
                     sizes="(max-width: 768px) 50vw, 25vw"
-                    className="object-cover"
+                    className="object-contain object-center"
                     fallbackClassName="absolute inset-0"
                   />
                 ) : (

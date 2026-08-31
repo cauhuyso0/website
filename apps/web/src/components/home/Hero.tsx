@@ -74,7 +74,7 @@ export function Hero({ slides, brandName }: HeroProps) {
         <p className="animate-rise text-[0.6rem] uppercase tracking-[0.2em] text-accent-soft sm:text-[0.65rem] sm:tracking-[0.24em]">
           Thương hiệu yến sào
         </p>
-        <h1 className="animate-rise-delay mt-3 max-w-3xl text-balance font-[family-name:var(--font-display)] text-[clamp(1.75rem,5.5vw,3.5rem)] leading-[1.1] sm:mt-4">
+        <h1 className="animate-rise-delay mt-3 max-w-3xl text-balance font-[family-name:var(--font-display)] text-[3rem] leading-[1.1] sm:mt-4">
           {title}
         </h1>
         <p className="animate-rise-delay mt-4 max-w-xl text-pretty text-xs leading-relaxed text-accent-soft sm:mt-5 sm:text-sm md:text-base">
